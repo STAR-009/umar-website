@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Blog - Umar Muhammad Sani</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+{% extends "index.html" %}
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/portfolio">Portfolio</a>
-    <a href="/blog">Blog</a>
-    <a href="/contact">Contact</a>
-</nav>
-
-<h1>My Blog</h1>
-
+{% block content %}
 <section>
-    <h2>My Journey Building Tech From My Phone</h2>
-    <p>I share lessons about coding, cybersecurity, and building solutions with limited resources.</p>
-</section>
+    <h2>Blog</h2>
 
-</body>
-</html>y
+    <div class="blog-post">
+        <h2>How to Build a Flask Website</h2>
+        <p>Step by step guide to create professional websites using Python & Flask...</p>
+    </div>
+
+    <div class="blog-post">
+        <h2>Freelance Portfolio Tips</h2>
+        <p>How to design a portfolio that attracts clients and generates income...</p>
+    </div>
+
+</section>
+{% endblock %}

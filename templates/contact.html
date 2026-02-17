@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact - Umar Muhammad Sani</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+{% extends "index.html" %}
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/portfolio">Portfolio</a>
-    <a href="/blog">Blog</a>
-    <a href="/contact">Contact</a>
-</nav>
-
-<h1>Contact Me</h1>
-
+{% block content %}
 <section>
-    <form method="POST">
-        <input type="text" name="name" placeholder="Your Name" required><br><br>
-        <input type="email" name="email" placeholder="Your Email" required><br><br>
-        <textarea name="message" placeholder="Your Message" required></textarea><br><br>
+    <h2>Contact Me</h2>
+    <form method="POST" action="{{ url_for('contact') }}">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
 </section>
-
-</body>
-</html>y
+{% endblock %}
