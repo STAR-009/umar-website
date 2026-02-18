@@ -25,5 +25,9 @@ def contact():
         return redirect(url_for('contact'))
     return render_template("contact.html")
 
+@app.route("/book")
+def book():
+    return render_template("book.html")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
