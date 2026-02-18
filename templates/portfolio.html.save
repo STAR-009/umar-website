@@ -22,22 +22,8 @@
   <h2>My Projects</h2>
 
   <div class="card">
-  <img src="{{ url_for('static', filename='img/portfolio/project1.jpg') }}" style="width:100%; border-radius:8px;">
-  <h3>Flask Portfolio Website</h3>
-  <p>A professional website built with Flask and deployed online.</p>
-</div>
+    <h3>Flask Portfolio Website</h3>
+    <p>A professional website built with Flask and deployed online.</p>
+  </div>
 
-<div class="card">
-  <img src="{{ url_for('static', filename='img/portfolio/project2.jpg') }}" style="width:100%; border-radius:8px;">
-  <h3>Python Automation Script</h3>
-  <p>Automation tool for repetitive tasks using Python.</p>
-</div>
-
-</section>
-
-<footer>
-  &copy; 2026 Umar Muhammad Sani
-</footer>
-
-</body>
-</html>
+ 

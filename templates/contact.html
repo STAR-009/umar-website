@@ -1,13 +1,11 @@
-{% extends "index.html" %}
-
-{% block content %}
 <section>
-    <h2>Contact Me</h2>
-    <form method="POST" action="{{ url_for('contact') }}">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+  <h2>Contact Me</h2>
+
+  <form method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <input type="email" name="email" placeholder="Your Email" required><br><br>
+    <textarea name="message" placeholder="Your Message" required></textarea><br><br>
+    <button type="submit">Send Message</button>
+  </form>
+
 </section>
-{% endblock %}
