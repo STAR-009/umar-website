@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
+
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
@@ -58,6 +59,10 @@ Service: {service}
         return redirect(url_for("book"))
 
     return render_template("book.html")
+
+@app.route("/success")
+def success():
+    return "<h2>Payment successful! We will contact you shortly.</h2>"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

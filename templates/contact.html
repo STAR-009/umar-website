@@ -20,12 +20,45 @@
 
 <section class="container">
   <h2>Contact Me</h2>
-  <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+  <form id="paymentForm">
+  <input type="email" id="email-address" required placeholder="Your email" />
+  <input type="number" id="amount" required placeholder="Amount in Naira" />
+  <button type="submit">Pay Now</button>
+<form id="paymentForm">
+  <input type="email" id="email-address" required placeholder="Your email" />
+  <input type="number" id="amount" required placeholder="Amount in Naira" />
+  <button type="submit">Pay Now</button>
+</form>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+const paymentForm = document.getElementById('paymentForm');
+
+paymentForm.addEventListener("submit", payWithPaystack, false);
+
+function payWithPaystack(e) {
+  e.preventDefault();
+
+  let handler = PaystackPop.setup({
+    key: 'pk_test_2fedd0c645da32e332e36abc3b79e01f079e6b21',
+    email: document.getElementById("email-address").value,
+    amount: document.getElementById("amount").value * 100,
+    currency: "NGN",
+
+    callback: function(response){
+      alert("Payment successful! Ref: " + response.reference);
+      window.location.href = "/success";
+    },
+
+    onClose: function(){
+      alert("Payment window closed.");
+    }
+  });
+
+  handler.openIframe();
+}
+</script>
 </section>
 
 <footer>
