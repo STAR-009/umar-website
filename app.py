@@ -8,6 +8,7 @@ def index():
 
 @app.route("/portfolio")
 def portfolio():
+    # Add project list if you want dynamic later
     return render_template("portfolio.html")
 
 @app.route("/blog")
@@ -20,8 +21,9 @@ def contact():
         name = request.form['name']
         email = request.form['email']
         message = request.form['message']
-        # Save to database or handle messages
+        # Save messages here
         return redirect(url_for('contact'))
     return render_template("contact.html")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
