@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'YOUR_GMAIL@gmail.com'
+app.config['MAIL_PASSWORD'] = 'qcna tnsn kgjv qsfn'
+app.config['MAIL_DEFAULT_SENDER'] = 'YOUR_GMAIL@gmail.com'
+
+mail = Mail(app)
 
 @app.route("/")
 def index():
@@ -25,8 +34,29 @@ def contact():
         return redirect(url_for('contact'))
     return render_template("contact.html")
 
-@app.route("/book")
+@app.route("/book", methods=["GET", "POST"])
 def book():
+    if request.method == "POST":
+        name = request.form["name"]
+        email = request.form["email"]
+        service = request.form["service"]
+
+        msg = Message(
+            subject="New Client Booking!",
+            recipients=["YOUR_GMAIL@gmail.com"],
+            body=f"""
+New booking received!
+
+Name: {name}
+Email: {email}
+Service: {service}
+"""
+        )
+
+        mail.send(msg)
+
+        return redirect(url_for("book"))
+
     return render_template("book.html")
 
 if __name__ == "__main__":
