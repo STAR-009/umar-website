@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Umar Muhammad Sani</title>
+<title>Portfolio | Umar Muhammad Sani</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -18,22 +18,29 @@
   </nav>
 </header>
 
-<div class="container">
+<section class="container">
   <h2>My Projects</h2>
 
-  <div class="card">
-    <img src="{{ url_for('static', filename='img/portfolio/project1.jpg') }}" alt="Project 1">
-    <h3>Flask Portfolio Website</h3>
-    <p>A professional website built with Flask and deployed online.</p>
-  </div>
+  <div class="portfolio-grid">
 
-  <div class="card">
-    <img src="{{ url_for('static', filename='img/portfolio/project2.jpg') }}" alt="Project 2">
-    <h3>Python Automation Script</h3>
-    <p>Automation tool for repetitive tasks using Python.</p>
-  </div>
+    <div class="portfolio-card">
+      <img src="{{ url_for('static', filename='img/portfolio/project1.jpg') }}">
+      <div class="portfolio-info">
+        <h3>Flask Website</h3>
+        <p>Professional portfolio website built with Flask and deployed online.</p>
+      </div>
+    </div>
 
-</div>
+    <div class="portfolio-card">
+      <img src="{{ url_for('static', filename='img/portfolio/project2.jpg') }}">
+      <div class="portfolio-info">
+        <h3>Python Automation Tool</h3>
+        <p>Automation script designed to save time on repetitive tasks.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <footer>
   &copy; 2026 Umar Muhammad Sani. All Rights Reserved.
