@@ -1,69 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Umar Muhammad Sani</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% extends "layout.html" %}
 
-<header>
-  <h1>Umar Muhammad Sani</h1>
-  <nav>
-    <a href="{{ url_for('index') }}">Home</a>
-    <a href="{{ url_for('portfolio') }}">Portfolio</a>
-    <a href="{{ url_for('blog') }}">Blog</a>
-    <a href="{{ url_for('contact') }}">Contact</a>
-  </nav>
-</header>
+{% block title %}Contact | Umar Muhammad Sani{% endblock %}
 
-<section class="container">
-  <h2>Contact Me</h2>
-  <form id="paymentForm">
-  <input type="email" id="email-address" required placeholder="Your email" />
-  <input type="number" id="amount" required placeholder="Amount in Naira" />
-  <button type="submit">Pay Now</button>
-<form id="paymentForm">
-  <input type="email" id="email-address" required placeholder="Your email" />
-  <input type="number" id="amount" required placeholder="Amount in Naira" />
-  <button type="submit">Pay Now</button>
-</form>
+{% block content %}
 
-<script src="https://js.paystack.co/v1/inline.js"></script>
+<h2>Hire Me / Contact Me</h2>
 
-<script>
-const paymentForm = document.getElementById('paymentForm');
+<div class="contact-wrapper">
 
-paymentForm.addEventListener("submit", payWithPaystack, false);
+    <form method="POST" class="contact-form">
 
-function payWithPaystack(e) {
-  e.preventDefault();
+        <label>Your Name</label>
+        <input type="text" name="name" required>
 
-  let handler = PaystackPop.setup({
-    key: 'pk_test_2fedd0c645da32e332e36abc3b79e01f079e6b21',
-    email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount").value * 100,
-    currency: "NGN",
+        <label>Email Address</label>
+        <input type="email" name="email" required>
 
-    callback: function(response){
-      alert("Payment successful! Ref: " + response.reference);
-      window.location.href = "/success";
-    },
+        <label>Your Message</label>
+        <textarea name="message" rows="5" required></textarea>
 
-    onClose: function(){
-      alert("Payment window closed.");
-    }
-  });
+        <button type="submit">Send Message</button>
 
-  handler.openIframe();
-}
-</script>
-</section>
+    </form>
+<div class="payment-section">
 
-<footer>
-  &copy; 2026 Umar Muhammad Sani. All Rights Reserved.
-</footer>
+    <h3>Book Me Instantly</h3>
+    <p>You can hire me directly using secure payment below.</p>
 
-</body>
-</html>
+    <a class="pay-btn paystack"
+       href="https://paystack.shop/pay/jyaufv2dmy"
+       target="_blank">
+       Pay with Paystack
+    </a>
+
+    <a class="pay-btn flutterwave"
+       href="https://sandbox.flutterwave.com/pay/mk2k0jqk9pmu"
+       target="_blank">
+       Pay with Flutterwave
+    </a>
+
+</div>
+
+    <div class="contact-info">
+        <h3>Work With Me</h3>
+        <p>I build websites, automation tools, and digital solutions.</p>
+        <p>If you need a developer, freelancer, or consultant — contact me.</p>
+
+        <h4>Available for:</h4>
+        <ul>
+            <li>Website Development</li>
+            <li>Automation Scripts</li>
+            <li>Freelance Projects</li>
+            <li>Consulting</li>
+        </ul>
+
+    </div>
+
+</div>
+
+{% endblock %}

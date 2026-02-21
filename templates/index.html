@@ -1,62 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Umar Muhammad Sani</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% extends "layout.html" %}
 
-<header>
-  <h1>Umar Muhammad Sani</h1>
-  <nav>
-    <a href="{{ url_for('book') }}">Book Me</a>
-    <a href="{{ url_for('index') }}">Home</a>
-    <a href="{{ url_for('portfolio') }}">Portfolio</a>
-    <a href="{{ url_for('blog') }}">Blog</a>
-    <a href="{{ url_for('contact') }}">Contact</a>
-  </nav>
-</header>
+{% block title %}Umar Muhammad Sani | Professional Web Developer{% endblock %}
 
+{% block content %}
+
+<!-- ===== HERO SECTION ===== -->
 <section class="hero">
-  <h2>Hi, I'm Umar 👋</h2>
-  <p>I build websites, automation scripts, and digital solutions.</p>
+  <div class="floating-shapes">
+    <span class="shape"></span>
+    <span class="shape"></span>
+    <span class="shape"></span>
+    <span class="shape"></span>
+</div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Hello, I’m Umar Muhammad Sani</h1>
+        <p>I build professional websites, automation scripts, and digital solutions for African businesses & startups.</p>
+        <div class="hero-buttons">
+            <a class="btn primary" href="https://wa.me/2349160210634" target="_blank">Hire Me on WhatsApp</a>
+            <a class="btn secondary" href="https://paystack.shop/pay/jyaufv2dmy" target="_blank">Pay via Paystack</a>
+        </div>
+    </div>
 </section>
 
-<section class="container">
-  <h2>My Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card">Python</div>
-    <div class="skill-card">Flask</div>
-    <div class="skill-card">HTML & CSS</div>
-    <div class="skill-card">JavaScript</div>
-    <div class="skill-card">Automation</div>
-    <div class="skill-card">Data Analysis</div>
+<section class="services">
+    <h2>What I Offer</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Business Websites</h3>
+            <p>Professional websites that help businesses attract customers.</p>
+        </div>
+
+        <div class="card">
+            <h3>Portfolio Sites</h3>
+            <p>Clean personal websites for freelancers and professionals.</p>
+        </div>
+
+        <div class="card">
+            <h3>Automation Tools</h3>
+            <p>Python tools that save time and improve productivity.</p>
+        </div>
+
+    </div>
+</section>
+
+<p class="pricing-note">
+Prices vary depending on project complexity, features, and delivery time.
+Contact me for a custom quote tailored to your needs.
+</p>
+
+<section class="services-pricing">
+    <h2>Services & Pricing</h2>
+    <div class="grid">
+
+        <div class="card">
+            <h3>Basic Website</h3>
+            <p>Simple website for personal brand or small business.</p>
+            <p><strong>Starting from $150</strong></p>
+            <a class="btn primary" href="{{ url_for('contact') }}">Hire Me</a>
+        </div>
+
+        <div class="card">
+            <h3>Business Website</h3>
+            <p>Professional website with multiple pages and portfolio.</p>
+            <p><strong>Starting from $350</strong></p>
+            <a class="btn primary" href="{{ url_for('contact') }}">Hire Me</a>
+        </div>
+
+        <div class="card">
+            <h3>Startup Platform</h3>
+            <p>High-level web app or landing page for tech startup.</p>
+            <p><strong>Starting from $700</strong></p>
+            <a class="btn primary" href="{{ url_for('contact') }}">Hire Me</a>
+        </div>
+
+    </div>
+</section>
+
+<div class="payment-steps">
+  <h3>How Payment Works</h3>
+  <ul>
+    <li>1. Discuss your project via WhatsApp</li>
+    <li>2. Receive timeline and final quote</li>
+    <li>3. Pay deposit via Paystack or Flutterwave</li>
+    <li>4. Project begins immediately</li>
+  </ul>
+</div>
+
+<p class="policy">
+✔ Free revisions within agreed scope  
+✔ 50% deposit required to begin work  
+✔ Final payment after project completion  
+</p>
+
+<section class="testimonials">
+    <h2>Client Trust & Testimonials</h2>
+    <div class="grid">
+
+        <div class="card">
+            <p>"Umar delivered my website faster than expected. Highly recommended!"</p>
+            <h4>- Aisha, Small Business Owner</h4>
+        </div>
+
+        <div class="card">
+            <p>"Professional work with great attention to detail. Excellent experience."</p>
+            <h4>- Kwame, Startup Founder</h4>
+        </div>
+
+        <div class="card">
+            <p>"Amazing designs and functional website. Really impressed!"</p>
+            <h4>- Fatima, NGO Manager</h4>
+        </div>
+
+    </div>
+</section>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <h4>How long does a website take to build?</h4>
+    <p>Most projects take between 3–10 days depending on features, pages, and complexity.</p>
   </div>
-</section>
 
-<section class="container">
-  <h2>Services I Offer</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <h3>Web Development</h3>
-      <p>Building modern, responsive websites using Flask, HTML, CSS, and JS.</p>
-    </div>
-    <div class="service-card">
-      <h3>Automation Scripts</h3>
-      <p>Creating Python scripts to save time and increase productivity.</p>
-    </div>
-    <div class="service-card">
-      <h3>Consulting</h3>
-      <p>Advice on digital solutions, websites, and automation strategies.</p>
-    </div>
+  <div class="faq-item">
+    <h4>Do I need to pay before work starts?</h4>
+    <p>Yes. A 50% deposit is required to begin the project. The remaining balance is paid after completion.</p>
   </div>
+
+  <div class="faq-item">
+    <h4>Can I request changes after delivery?</h4>
+    <p>Yes. Free revisions are included within the agreed scope of the project.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Do you work with clients outside my country?</h4>
+    <p>Yes. I work with clients across Africa and globally using WhatsApp, email, and online payment platforms.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>What payment methods do you accept?</h4>
+    <p>I accept Paystack, Flutterwave, Mobile Money, bank transfer, and international payments.</p>
+  </div>
+
 </section>
 
-<footer>
-  &copy; 2026 Umar Muhammad Sani. All Rights Reserved.
-</footer>
+<section class="payment-cta">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Payments accepted via Paystack, Flutterwave, Mobile Money, and Bank Transfer.</p>
 
-</body>
-</html>
+    <div class="cta-buttons">
+        <button onclick="openInquiryModal()" class="primary-btn">
+  Start Project Inquiry
+</button>
+        <a class="btn primary" href="https://wa.me/2349160210634" target="_blank">Hire Me on WhatsApp</a>
+        <a class="btn secondary" href="https://paystack.shop/pay/jyaufv2dmy" target="_blank">Pay via Paystack</a>
+        <a class="btn secondary" href="https://sandbox.flutterwave.com/pay/mk2k0jqk9pmu" target="_blank">Pay via Flutterwave</a>
+    </div>
+
+<div id="inquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeInquiryModal()">&times;</span>
+
+    <h2>Start Your Project</h2>
+
+    <form id="inquiryForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  
+  <select name="service">
+    <option value="">Select Service</option>
+    <option>Basic Website</option>
+    <option>Business Website</option>
+    <option>Startup Platform</option>
+    <option>Tech Consultancy</option>
+    <option>Portfolio Landing Page</option>
+    <option>SME Website</option>
+    <option>AI Script/Prompt</option>
+  </select>
+
+  <textarea name="message" placeholder="Describe your project"></textarea>
+
+  <button type="submit" class="primary-btn">Send Inquiry</button>
+</form>
+
+  </div>
+</div>
+
+<script>
+function openInquiryModal() {
+    document.getElementById("inquiryModal").style.display = "block";
+}
+
+function closeInquiryModal() {
+    document.getElementById("inquiryModal").style.display = "none";
+}
+</script>
+
+<script>
+document.getElementById("inquiryForm").addEventListener("submit", function(e){
+    e.preventDefault(); // Stop normal form submission
+
+    // Get form values
+    let name = this.name.value;
+    let email = this.email.value;
+    let service = this.service.value;
+    let message = this.message.value;
+
+    // Construct WhatsApp message
+    let whatsappMessage = `Hello Umar, I would like to start a project.\n\nName: ${name}\nEmail: ${email}\nService: ${service}\nMessage: ${message}`;
+
+    // Encode message for URL
+    let encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Your WhatsApp number (replace with yours)
+    let whatsappNumber = "2349160210634";
+
+    // Open WhatsApp chat
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+
+    // Close modal
+    closeInquiryModal();
+
+    // Optionally, reset form
+    this.reset();
+});
+</script>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{% block title %}Umar Muhammad Sani{% endblock %}</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:'Poppins',sans-serif;}
+</style>
+
+</head>
+<body>
+
+<header class="navbar">
+    <h1>Umar Muhammad Sani</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('portfolio') }}">Portfolio</a>
+        <a href="{{ url_for('blog') }}">Blog</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+</header>
+
+<section>
+{% block content %}{% endblock %}
+</section>
+
+<footer>
+    <p>© 2026 Umar Muhammad Sani — Built with Python & Flask</p>
+</footer>
+<a href="https://wa.me/2349160210634" class="whatsapp-float" target="_blank">
+    Chat on WhatsApp
+</a>
+
+<script>
+window.addEventListener("scroll", function(){
+    const navbar = document.querySelector(".navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>

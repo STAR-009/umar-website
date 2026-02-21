@@ -1,50 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Umar Muhammad Sani</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% extends "layout.html" %}
 
-<header>
-  <h1>Umar Muhammad Sani</h1>
-  <nav>
-    <a href="{{ url_for('index') }}">Home</a>
-    <a href="{{ url_for('portfolio') }}">Portfolio</a>
-    <a href="{{ url_for('blog') }}">Blog</a>
-    <a href="{{ url_for('contact') }}">Contact</a>
-  </nav>
-</header>
+{% block title %}Portfolio | Umar Muhammad Sani{% endblock %}
 
-<section class="container">
-  <h2>My Projects</h2>
+{% block content %}
 
-  <div class="portfolio-grid">
+<h2>My Projects</h2>
 
-    <div class="portfolio-card">
-      <img src="{{ url_for('static', filename='img/portfolio/project1.jpg') }}">
-      <div class="portfolio-info">
-        <h3>Flask Website</h3>
-        <p>Professional portfolio website built with Flask and deployed online.</p>
+<div class="grid">
+
+  <div class="card" onclick="openModal(this)">
+    <img src="{{ url_for('static', filename='img/portfolio/construction.png') }}" alt="Flask Website">
+    <h3>Flask Website</h3>
+    <p class="card-description">Professional portfolio website built using Flask and deployed online.</p>
+  </div>
+
+  <div class="card" onclick="openModal(this)">
+    <img src="{{ url_for('static', filename='img/portfolio/python_demo.png') }}" alt="Python Automation Tool">
+    <h3>Python Automation Tool</h3>
+    <p class="card-description">Automation script designed to save time on repetitive tasks.</p>
+  </div>
+
+  <div class="card" onclick="openModal(this)">
+    <img src="{{ url_for('static', filename='img/portfolio/startup.png') }}" alt="More Projects">
+    <h3>More Projects Coming</h3>
+    <p class="card-description">I am continuously building new solutions. Stay tuned.</p>
+  </div>
+
+</div>
+
+<!-- Portfolio Modal -->
+<div id="portfolioModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modalImage" src="" alt="Project Image">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+  </div>
+</div>
+
+<div class="card">
+    <div class="card-image">
+        <img src="{{ url_for('static', filename='img/portfolio/construction.png') }}">
+        <div class="card-overlay">
+            <a href="#" class="view-btn">View Project</a>
+        </div>
+    </div>
+    <h3>Flask Website</h3>
+    <p>Professional portfolio website built using Flask and deployed online.</p>
+</div>
+
+<section class="portfolio-section">
+
+  <h2 class="section-title">Our Work</h2>
+
+  <div class="portfolio">
+
+    <div class="card">
+      <img src="{{ url_for('static', filename='img/portfolio/construction.png') }}">
+      <div class="overlay">
+        <h3>Website Design</h3>
+        <p>Modern responsive website</p>
       </div>
     </div>
 
-    <div class="portfolio-card">
-      <img src="{{ url_for('static', filename='img/portfolio/project2.jpg') }}">
-      <div class="portfolio-info">
-        <h3>Python Automation Tool</h3>
-        <p>Automation script designed to save time on repetitive tasks.</p>
+    <div class="card">
+      <img src="{{ url_for('static', filename='img/portfolio/startup.png') }}">
+      <div class="overlay">
+        <h3>Mobile App UI</h3>
+        <p>Android interface project</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="{{ url_for('static', filename='img/portfolio/python_demo.png') }}">
+      <div class="overlay">
+        <h3>Dashboard</h3>
+        <p>Analytics admin panel</p>
       </div>
     </div>
 
   </div>
+
 </section>
 
-<footer>
-  &copy; 2026 Umar Muhammad Sani. All Rights Reserved.
-</footer>
+<section class="testimonials">
 
-</body>
-</html>
+  <h2 class="section-title">What Clients Say</h2>
+
+  <div class="testimonial-grid">
+
+    <div class="testimonial">
+      <p>"They delivered my website faster than expected. Clean, modern and mobile-friendly."</p>
+      <h4>— Startup Founder</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>"Professional design and smooth communication. I’ll definitely work with them again."</p>
+      <h4>— Small Business Owner</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>"Our brand now looks premium online. The results surprised us."</p>
+      <h4>— Agency Partner</h4>
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+<script>
+function openModal(card) {
+  const modal = document.getElementById("portfolioModal");
+  const modalImg = document.getElementById("modalImage");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+
+  modal.style.display = "block";
+  modalImg.src = card.querySelector("img").src;
+  modalTitle.textContent = card.querySelector("h3").textContent;
+  modalDescription.textContent = card.querySelector(".card-description").textContent;
+}
+
+// Close modal when X is clicked
+document.querySelector(".modal .close").onclick = function() {
+  document.getElementById("portfolioModal").style.display = "none";
+}
+
+// Close modal when clicking outside content
+window.onclick = function(event) {
+  const modal = document.getElementById("portfolioModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+{% endblock %}
