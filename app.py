@@ -6,9 +6,11 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'YOUR_GMAIL@gmail.com'
-app.config['MAIL_PASSWORD'] = 'qcna tnsn kgjv qsfn'
-app.config['MAIL_DEFAULT_SENDER'] = 'YOUR_GMAIL@gmail.com'
+import os
+
+app.config['Umar-website-2'] = os.environ.get("Umar-website-2")
+app.config['lrvc stqe sxtd ymxj'] = os.environ.get("lrvc stqe sxtd ymxj")
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get("Umar-website-2")
 
 mail = Mail(app)
 
@@ -64,5 +66,7 @@ Service: {service}
 def success():
     return "<h2>Payment successful! We will contact you shortly.</h2>"
 
+import os
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

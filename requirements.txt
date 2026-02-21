@@ -29,3 +29,6 @@ typing_extensions==4.15.0
 urllib3==2.6.3
 Werkzeug==3.1.3
 wifite @ file:///data/data/com.termux/files/home/wifite2
+Flask
+gunicorn
+Flask-Mail
